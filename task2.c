@@ -23,6 +23,14 @@ double fromCelsius(double celsius, char scale) {
     return celsius;
 }
 
+int isValidScale(char scale) {
+    scale = toupper(scale);
+    if (scale == 'C' || scale == 'F' || scale == 'K') {
+	return 1;
+    }
+    return 0;
+}
+
 int main(void) {
     double value;
     char fromScale, toScale;
@@ -35,6 +43,11 @@ int main(void) {
 
     printf("Enter the scale to convert to (C, F, or K): ");
     scanf(" %c", &toScale);
+
+    if (!isValidScale(fromScale) || !isValidScale(toScale)) {
+	printf("Invalid scale entered.\n");
+        return 1;
+    }
 
     double celsius = toCelsius(value, fromScale);
     double converted = fromCelsius(celsius, toScale);
