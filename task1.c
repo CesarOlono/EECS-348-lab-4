@@ -29,14 +29,14 @@ int main(void) {
     int score;
 
     while (1) {
-        printf("Enter the NFL score (Enter -1 to stop): ");
+        printf("Enter the NFL score (Enter 1 to stop): ");
         if (scanf("%d", &score) != 1) {
             printf("Invalid input.\n");
             while (getchar() != '\n'); // clear bad input
             continue;
         }
 
-        if (score == -1) {
+        if (score == 1) {
             break;
         }
 
